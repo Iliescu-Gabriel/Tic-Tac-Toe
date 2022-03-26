@@ -1,5 +1,3 @@
-import getElement from "./modules/getElement.js";
-
 let turn = "X";
 let gameOver = false;
 
@@ -111,3 +109,10 @@ function checkConsMarked() {
     return true;
   return false;
 }
+
+// helper functions
+const getElement = (element) => {
+  const el = document.querySelector(element);
+  if (el) return el;
+  throw new Error(`No element with selector ${element} found!`);
+};
