@@ -10,16 +10,18 @@ window.onload = function () {
       //Rows
       //Create button
       let button = document.createElement("button");
+      button.className = "btn btn-outline-secondary text-center";
       button.id = "button" + y + x;
       button.setAttribute("type", "button");
       button.onclick = () => {
         markButton("#" + button.id);
       };
       //Style button
-      button.style.width = "40px";
-      button.style.height = "40px";
+      button.style.width = "60px";
+      button.style.height = "60px";
       button.style.fontSize = "30px";
-      button.innerHTML = "_";
+      button.style.color = "black";
+      button.innerHTML = "";
       //Append button
       boardElement.append(button);
     }
@@ -35,7 +37,7 @@ function markButton(buttonId) {
   //If the button does not contain a value and check whose turn is it
   // then add the proper text to it
   let button = getElement(buttonId);
-  if (button.innerHTML == "_") {
+  if (button.innerHTML == "") {
     if (turn == "X") {
       button.innerHTML = "X";
       turn = "0";
@@ -65,7 +67,7 @@ function checkUnmarkedBtns() {
     //Columns
     for (let x = 0; x < 3; x++) {
       //Rows
-      if (getElement("#button" + y + x).innerHTML == "_") return true;
+      if (getElement("#button" + y + x).innerHTML == "") return true;
     }
   }
   return false;
@@ -76,7 +78,7 @@ function checkConsMarked() {
   for (let i = 0; i < 3; i++) {
     //Rows check
     if (
-      getElement("#button" + i + "0").innerHTML != "_" &&
+      getElement("#button" + i + "0").innerHTML != "" &&
       getElement("#button" + i + "0").innerHTML ==
         getElement("#button" + i + "1").innerHTML &&
       getElement("#button" + i + "1").innerHTML ==
@@ -85,7 +87,7 @@ function checkConsMarked() {
       return true;
     //Columns check
     if (
-      getElement("#button0" + i).innerHTML != "_" &&
+      getElement("#button0" + i).innerHTML != "" &&
       getElement("#button0" + i).innerHTML ==
         getElement("#button1" + i).innerHTML &&
       getElement("#button1" + i).innerHTML ==
@@ -95,14 +97,14 @@ function checkConsMarked() {
   }
   //Main diagonal check
   if (
-    getElement("#button00").innerHTML != "_" &&
+    getElement("#button00").innerHTML != "" &&
     getElement("#button00").innerHTML == getElement("#button11").innerHTML &&
     getElement("#button11").innerHTML == getElement("#button22").innerHTML
   )
     return true;
   //Secondary diagonal check
   if (
-    getElement("#button20").innerHTML != "_" &&
+    getElement("#button20").innerHTML != "" &&
     getElement("#button20").innerHTML == getElement("#button11").innerHTML &&
     getElement("#button11").innerHTML == getElement("#button02").innerHTML
   )
