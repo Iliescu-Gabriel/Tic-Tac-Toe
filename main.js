@@ -11,16 +11,12 @@ window.onload = function () {
       //Create button
       let button = document.createElement("button");
       button.className = "btn btn-outline-secondary text-center";
+      button.classList.add("myBtn");
       button.id = "button" + y + x;
       button.setAttribute("type", "button");
       button.onclick = () => {
         markButton("#" + button.id);
       };
-      //Style button
-      button.style.width = "60px";
-      button.style.height = "60px";
-      button.style.fontSize = "30px";
-      button.style.color = "black";
       button.innerHTML = "";
       //Append button
       boardElement.append(button);
